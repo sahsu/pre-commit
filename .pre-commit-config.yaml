@@ -55,13 +55,11 @@ repos:
 #    files: \.(yaml|yml)$
 #    types: [file, yaml]
 #    entry: yamllint --strict
-- repo: https://github.com/pre-commit/mirrors-isort
-  rev: v5.4.2
+- repo: https://github.com/pycqa/isort
+  rev: 5.3.0
   hooks:
   - id: isort
-    args:
-    # https://github.com/pre-commit/mirrors-isort/issues/9#issuecomment-624404082
-    - --filter-files
+
 - repo: https://gitlab.com/pycqa/flake8.git
   rev: 3.8.3
   hooks:
@@ -80,7 +78,7 @@ repos:
     additional_dependencies:
     - Sphinx>=3.1.2
 - repo: https://github.com/pre-commit/mirrors-pylint
-  rev: v2.5.3
+  rev: v2.6.0
   hooks:
   - id: pylint
 
