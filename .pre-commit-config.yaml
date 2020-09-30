@@ -55,13 +55,7 @@ repos:
 #    files: \.(yaml|yml)$
 #    types: [file, yaml]
 #    entry: yamllint --strict
-- repo: https://github.com/pre-commit/mirrors-isort
-  rev: v5.4.2
-  hooks:
-  - id: isort
-    args:
-    # https://github.com/pre-commit/mirrors-isort/issues/9#issuecomment-624404082
-    - --filter-files
+
 - repo: https://gitlab.com/pycqa/flake8.git
   rev: 3.8.3
   hooks:
@@ -80,7 +74,7 @@ repos:
     additional_dependencies:
     - Sphinx>=3.1.2
 - repo: https://github.com/pre-commit/mirrors-pylint
-  rev: v2.5.3
+  rev: v2.6.0
   hooks:
   - id: pylint
 
@@ -119,10 +113,10 @@ repos:
   - id: dockerfilelint
     stages: [commit]
 
-- repo: https://github.com/shellcheck-py/shellcheck-py
-  rev: v0.7.1.1
-  hooks:
-  - id: shellcheck
+#- repo: https://github.com/shellcheck-py/shellcheck-py
+#  rev: v0.7.1.1
+#  hooks:
+#  - id: shellcheck
 
 - repo: git@github.com:Yelp/detect-secrets
   rev: v0.14.2
@@ -130,3 +124,9 @@ repos:
   - id: detect-secrets
     args: ['--baseline', '.secrets.baseline']
     exclude: .*/tests/.*
+
+- repo: https://github.com/ansible/ansible-lint.git
+  rev: v4.2.0
+  hooks:
+  -   id: ansible-lint
+      files: \.(yaml|yml)$
